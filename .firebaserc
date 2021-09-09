@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fcamara-squad3-6ad63": {
+      "hosting": {
+        "app": [
+          "fcamara-squad3-6ad63"
+        ]
+      }
+    }
+  }
+}
