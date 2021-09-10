@@ -1,9 +1,35 @@
-<ion-header>
+<ion-header collapse="condense">
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <img src="/assets/img/logo-fcamara-laranja.png" alt="Logo do Grupo FCamara">
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+<ion-content>
+  <span>Login</span>
+  <ion-item>
+    <ion-input type="email" placeholder="Digite seu E-Mail" [(ngModel)]="usuarioLogin.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="password" placeholder="Digite sua senha" [(ngModel)]="usuarioLogin.senha"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="login()">
+    Login
+  </ion-button>
+
+  <br><br>
+
+  <span>Cadastrar</span>
+  <ion-item>
+    <ion-input type="text" placeholder="Digite seu nome completo" [(ngModel)]="usuarioCadastro.nome"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="email" placeholder="Digite seu E-Mail" [(ngModel)]="usuarioCadastro.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="password" placeholder="Digite sua senha (Minimo de 6 caracteres)" [(ngModel)]="usuarioCadastro.senha"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="cadastrar()">
+    Cadastrar
+  </ion-button>
 </ion-content>
