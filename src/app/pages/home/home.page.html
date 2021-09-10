@@ -5,5 +5,9 @@
 </ion-header>
 
 <ion-content >
-  <ion-button routerLink="/fonte">Fontes</ion-button>
+  <ion-button expand ="block" routerLink="/fonte">Fontes</ion-button>
+  <ion-button expand="block" (click)="sair()">
+    <ion-icon slot="start" name="exit-outline"></ion-icon>
+    Sair
+  </ion-button>
 </ion-content>
