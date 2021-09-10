@@ -19,7 +19,7 @@ export class AuthService {
   }
 
   public getUsuario(id:string){
-    return this;this.usuarioColecao.doc<Usuario>(id).valueChanges();
+    return this.usuarioColecao.doc<Usuario>(id).valueChanges();
   }
 
   public cadastrar(usuarioCadastro: Usuario){
