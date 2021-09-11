@@ -4,10 +4,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
-  <ion-button expand ="block" routerLink="/fonte">Fontes</ion-button>
-  <ion-button expand="block" (click)="sair()">
-    <ion-icon slot="start" name="exit-outline"></ion-icon>
-    Sair
-  </ion-button>
+<ion-content>
+  <div *ngIf="usuario">
+    <h1>Olá {{usuario.nome}}</h1>
+      <ion-button expand="block" routerLink="/fonte">Fontes</ion-button>
+      <ion-button expand="block" routerLink="/agendamento">
+        <ion-icon slot="start" name="calendar-number-outline"></ion-icon>
+        Realizar Agendamento
+      </ion-button>
+      <ion-button expand="block" (click)="sair()">
+        <ion-icon slot="start" name="exit-outline"></ion-icon>
+        Sair
+      </ion-button>
+  </div>
 </ion-content>
