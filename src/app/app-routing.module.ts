@@ -29,6 +29,15 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: () => import('./pages/agendamento/agendamento.module').then( m => m.AgendamentoPageModule)
   },
+  {
+    path: 'perfil',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'meus-agendamentos',
+    loadChildren: () => import('./pages/meus-agendamentos/meus-agendamentos.module').then( m => m.MeusAgendamentosPageModule)
+  },
 ];
 
 @NgModule({
