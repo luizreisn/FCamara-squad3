@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { LoadingController, ToastController } from '@ionic/angular';
+import { IonSlides, LoadingController, ToastController } from '@ionic/angular';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -11,6 +11,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginPage {
 
+  @ViewChild(IonSlides) slides: IonSlides;
+
   public usuarioLogin: Usuario = {};
   public usuarioCadastro: Usuario = {};
   private loading: any;
@@ -18,16 +20,24 @@ export class LoginPage {
   constructor(private authService: AuthService,
     private afs: AngularFirestore,
     private loadingCtrl: LoadingController,
-    private toastCtrl: ToastController) { }
+    private toastCtrl: ToastController) {
+  }
 
+  public segmentChanged(event: any) {
+    if (event.detail.value == 'login') {
+      this.slides.slidePrev();
+    } else if (event.detail.value == 'cadastro') {
+      this.slides.slideNext();
+    }
+  }
 
-  public async login(){
+  public async login() {
     await this.carregando();
-    try{
+    try {
       await this.authService.login(this.usuarioLogin);
-    }catch(error){
+    } catch (error) {
       let message: string;
-      switch(error.code){
+      switch (error.code) {
         case 'auth/argument-error':
           message = 'O campo E-Mail e Senha devem ser preenchidos corretamente!'
           break;
@@ -40,22 +50,30 @@ export class LoginPage {
         case 'auth/wrong-password':
           message = 'Senha incorreta';
           break;
+        case 'auth/missing-email':
+          message = 'Insira um E-Mail';
+          break;
+        case 'auth/internal-error':
+          message = 'Insira uma senha';
+          break;
       }
       console.log(error);
       this.toastErro(message);
-    }finally{
+    } finally {
       this.loading.dismiss();
     }
   }
 
-  public async cadastrar(){
+  public async cadastrar() {
     await this.carregando();
-    try{
+    try {
       const novoUsuario = await this.authService.cadastrar(this.usuarioCadastro);
+      this.usuarioCadastro.agendamentos = [];
+      this.usuarioCadastro.id = novoUsuario.user.uid;
       await this.afs.collection<Usuario>('Usuarios').doc(novoUsuario.user.uid).set(this.usuarioCadastro);
-    }catch(error){
+    } catch (error) {
       let message: string;
-      switch (error.code){
+      switch (error.code) {
         case 'auth/argument-erro':
           message = 'O campo E-Mail e Senha devem ser preenchidos corretamente!'
           break;
@@ -68,22 +86,30 @@ export class LoginPage {
         case 'auth/invalid-email':
           message = 'E-Mail invalido'
           break;
+        case 'auth/admin-restricted-operation':
+          message = 'Insira seus dados'
+          break;
+        case 'auth/missing-email':
+          message = 'Insira um E-Mail';
+          break;
+        case 'auth/internal-error':
+          message = 'Insira uma senha';
+          break;
       }
       console.log(error);
       this.toastErro(message);
-    }finally{
+    } finally {
       this.loading.dismiss();
     }
-
   }
 
-  private async carregando(){
-    this.loading = await this.loadingCtrl.create({message: 'Por favor aguarde ...'});
+  private async carregando() {
+    this.loading = await this.loadingCtrl.create({ message: 'Por favor aguarde ...' });
     return this.loading.present();
   }
 
-  private async toastErro(message: string){
-    const toast = await this.toastCtrl.create({message, duration: 2000, color:'primary'});
+  private async toastErro(message: string) {
+    const toast = await this.toastCtrl.create({ message, duration: 2000, color: 'primary' });
     toast.present();
   }
 
