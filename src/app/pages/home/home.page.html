@@ -1,20 +1,41 @@
-<ion-header collapse="condense">
-  <ion-toolbar>
-    <img src="/assets/img/logo-fcamara-laranja.png" alt="Logo do Grupo FCamara">
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <div *ngIf="usuario">
-    <h1>Olá {{usuario.nome}}</h1>
+<div class="ion-page" id="main">
+  <ion-content>
+    <div *ngIf="usuario">
+  
+      <ion-header class="ion-no-border">
+        <ion-toolbar class="ion-no-padding ion-text-center" color="primary">
+            <ion-buttons>
+              <ion-menu-button menu="menuHome"></ion-menu-button>
+              <div>
+                <img src="/assets/img/logo-fcamara-negativo.png" alt="Logo do Grupo FCamara">
+                <h1>Olá, {{usuario.nome}}</h1>
+              </div>
+            </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+  
       <ion-button expand="block" routerLink="/fonte">Fontes</ion-button>
       <ion-button expand="block" routerLink="/agendamento">
         <ion-icon slot="start" name="calendar-number-outline"></ion-icon>
         Realizar Agendamento
       </ion-button>
-      <ion-button expand="block" (click)="sair()">
-        <ion-icon slot="start" name="exit-outline"></ion-icon>
-        Sair
-      </ion-button>
-  </div>
-</ion-content>
+    </div>
+  </ion-content>
+</div>
+
+<ion-menu content-id="main" menuId="menuHome" side="start" type="push">
+  <ion-content class="menuLateral" color="primary" >
+    <ion-list>
+      <ion-menu-toggle>
+        <ion-item [routerLink]="['/', botaoMenu.id]" *ngFor="let botaoMenu of botoesMenu">
+          <ion-icon slot="start" [name]="botaoMenu.icon"></ion-icon>
+          <ion-label>{{botaoMenu.nome}}</ion-label>
+        </ion-item>
+        <ion-item button (click)="sair()">
+          <ion-icon slot="start" name="exit-outline"></ion-icon>
+          <ion-label>Sair</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>
