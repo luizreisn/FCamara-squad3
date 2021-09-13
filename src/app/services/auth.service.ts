@@ -30,6 +30,10 @@ export class AuthService {
     return this.afa.signInWithEmailAndPassword(usuarioLogin.email, usuarioLogin.senha);
   }
 
+  public atualizarDados(id: string, usuario: Usuario){
+    return this.usuarioColecao.doc<Usuario>(id).update(usuario);
+  }
+
   public sair(){
     return this.afa.signOut();
   }
