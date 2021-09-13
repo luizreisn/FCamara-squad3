@@ -1,0 +1,42 @@
+<ion-content>
+  <div *ngIf="usuario">
+
+    <ion-header class="ion-no-border">
+      <ion-toolbar class="ion-no-padding ion-text-center" color="primary">
+        <ion-buttons>
+          <ion-back-button defaultHref="home"></ion-back-button>
+          <div><img src="/assets/img/logo-fcamara-negativo.png" alt="Logo do Grupo FCamara">
+            <h1>Perfil</h1>
+          </div>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-item lines="none">
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="usuario.nome" required></ion-input>
+    </ion-item>
+        <ion-item lines="none">
+      <ion-label position="floating">Sobrenome</ion-label>
+      <ion-input type="text" [(ngModel)]="usuario.sobrenome" required></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label position="floating">Celular</ion-label>
+      <ion-input type="tel" [(ngModel)]="usuario.celular" ></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label position="floating">CPF</ion-label>
+      <ion-input type="number" [(ngModel)]="usuario.cpf" disabled ></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label position="floating">E-Mail</ion-label>
+      <ion-input type="email" [(ngModel)]="usuario.email" disabled ></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="usuario.senha" disabled ></ion-input>
+    </ion-item>
+    <ion-button expand="block" (click)="atualizar()"> Atualizar Dados</ion-button>
+
+  </div>
+</ion-content>
