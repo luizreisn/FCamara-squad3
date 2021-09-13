@@ -13,6 +13,10 @@ import { UnidadeService } from 'src/app/services/unidade.service';
 export class AgendamentoPage{
 
   public escolha: string;
+  public escolhaDia: string;
+  public diaMin: string;
+  public diaMax: string;
+  public customDaysName = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'];
 
   public unidades = new Array<Unidades>();
   private unidadesSubscription: Subscription;
@@ -20,16 +24,19 @@ export class AgendamentoPage{
   public porcentagemCovid = new Array<PorcentagemCovid>();
   private porcentagemSubscription: Subscription;
 
-  public focado = 0;
+  public focado: number;
 
   constructor(private unidadesService: UnidadeService,
     private porcentagemService: PorcentagemCovidService){
     this.carregarDados();
+    this.diaMin= new Date(Date.now()).toISOString();
+    this.diaMax = new Date(Date.now() + ( 3600 * 1000 * 24* 7)).toISOString();
   }
 
   public async carregarDados(){
     this.unidadesSubscription = this.unidadesService.getUnidades().subscribe( data => {
       this.unidades = data;
+      this.focado = 0;
     });
     this.porcentagemSubscription = this.porcentagemService.getPorcentagens().subscribe( data => {
       this.porcentagemCovid = data;
@@ -54,12 +61,19 @@ export class AgendamentoPage{
   }
 
   public focar(){
-    if(this.focado == 1){
+    if(this.focado === 1){
       this.focado = 0;
     }else{
       this.focado = 1;
     }
     console.log(this.focado )
   }
+
+  public formatar(){
+    this.escolhaDia = this.escolhaDia.split('T')[0];
+    console.log(this.escolhaDia);
+  }
+
+
 
 }

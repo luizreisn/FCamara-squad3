@@ -1,34 +1,39 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons>
-      <ion-back-button defaultHref="home"></ion-back-button>
-      <img src="/assets/img/logo-fcamara-laranja.png" alt="Logo do Grupo FCamara">
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <div *ngIf="unidades">
+  <div *ngIf="unidades && porcentagemCovid">
+
+    <ion-header class="ion-no-border">
+      <ion-toolbar class="ion-no-padding ion-text-center" color="primary">
+        <ion-buttons>
+          <ion-back-button defaultHref="home"></ion-back-button>
+          <div><img src="/assets/img/logo-fcamara-negativo.png" alt="Logo do Grupo FCamara">
+            <h1>Realizar Agendamento</h1>
+          </div>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
     <ion-list>
       <ion-radio-group [(ngModel)]="escolha">
-        <ion-list-header>Escolha uma unidade:</ion-list-header>
+        <ion-label>Escolha uma unidade:</ion-label>
         <ion-item *ngFor="let unidade of unidades">
-          <ion-label>{{unidade.nome}} {{unidade.capacidadeMax}} {{unidade.capacidadeCovid}}</ion-label>
-          <ion-radio slot="start" [value]="[unidade.nome]"></ion-radio>
+          <ion-label>{{unidade.nome}}</ion-label>
+          <ion-radio mode="md" slot="start" [value]="[unidade.nome]"></ion-radio>
         </ion-item>
       </ion-radio-group>
     </ion-list>
 
     <div *ngIf="focado === 0; else verMais">
-      <ion-button fill="clear" (ionFocus)="focar()">
-        Mais Informações
-      </ion-button>
+      <ion-text class="info" button (click)="focar()">Mais Informações</ion-text>
       <h1>{{escolha}}</h1>
       <div *ngIf="escolha != null">
-        <h1>Texto escondido</h1>
+        <ion-item>
+          <ion-label>Escolha um dia:</ion-label>
+          <ion-datetime displayFormat="DDD DD MM YYYY" pickerFormat="DDD DD MM YYYY" [min]="[diaMin]" [max]="[diaMax]" [dayShortNames]="customDaysName" [(ngModel)]="escolhaDia"></ion-datetime>
+        </ion-item>
+        <h1>{{escolhaDia}}</h1>
       </div>
-      <div><!--</div><div *ngIf="dia != null">-->
-        <ion-button expand="block">
+      <div *ngIf="escolhaDia != null">
+        <ion-button expand="block" (click)="formatar()">
           Concluir agendamento
         </ion-button>
       </div>
@@ -37,11 +42,11 @@
 </ion-content>
 
 <ng-template #verMais>
-  <ion-button fill="clear" (ionFocus)="focar()">
-    Minimizar Informações
-  </ion-button>
+  <ion-text class="info" button (click)="focar()">Minimizar Informações</ion-text>
   <div *ngFor="let unidade of unidades">
     <h1>{{unidade.nome}}</h1>
     <p>{{unidade.descricao}}</p>
+    <p>Capacidade Maxima: {{unidade.capacidadeMax}}</p>
+    <p>Capacidade Covid: {{unidade.capacidadeCovid}}</p>
   </div>
 </ng-template>
