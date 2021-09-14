@@ -17,7 +17,7 @@
         <ion-label>Escolha uma unidade:</ion-label>
         <ion-item *ngFor="let unidade of unidades">
           <ion-label>{{unidade.nome}}</ion-label>
-          <ion-radio mode="md" slot="start" [value]="[unidade.nome]"></ion-radio>
+          <ion-radio mode="md" slot="start" [value]="unidade.id"></ion-radio>
         </ion-item>
       </ion-radio-group>
     </ion-list>

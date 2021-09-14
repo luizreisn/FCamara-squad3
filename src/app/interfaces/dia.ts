@@ -1,8 +1,6 @@
-import { Agendamento } from "./agendamento";
+import { DiaUnidade } from "./dia-unidade";
 
 export interface Dia {
     id?: string;
-    unidade?: string;
-    contador?: number;
-    agendamentos?: Agendamento[];
+    unidades?: DiaUnidade[];
 }
