@@ -28,3 +28,15 @@ ion-toolbar {
   font-size: 50px;
   margin-right: 30px;
 }
+
+ion-card{
+  padding: 10px;
+  ion-text{
+    font-size: 15pt;
+    font-family: Montserrat-SemiBold;
+  }
+}
+
+ion-item{
+  color: var(--ion-color-primary);;
+}

@@ -10,5 +10,40 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
+
+    <ion-card color="primary" class="ion-text-center">
+      <ion-text>Existem {{quantidadeAgendamentos}} agendamentos realizados</ion-text>
+    </ion-card>
+
+    <div *ngIf="quantidadeAgendamentos > 0;else semAgendamento">
+      <ion-list *ngFor="let agendamento of usuario.agendamentos">
+        <ion-item>
+          <ion-row class="ion-align-items-center">
+            <ion-col>
+              <ion-row>
+                <h1>#{{agendamento.id}}</h1>
+              </ion-row>
+              <ion-row>
+                <h3>{{agendamento.data}}</h3>
+              </ion-row>
+            </ion-col>
+            <ion-col></ion-col>
+            <ion-col>
+              <h1>{{agendamento.unidade}}</h1>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+    </div>
+
   </div>
 </ion-content>
+
+<ng-template #semAgendamento>
+  <ion-text color="medium" class="ion-text-center">
+    <h1>
+      <ion-icon slot="start" name="sad-outline" style="font-size: 2em;"></ion-icon>
+    </h1>
+    <p style="margin: 15px;">Você ainda não possui agendamentos.</p>
+  </ion-text>
+</ng-template>
