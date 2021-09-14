@@ -1,5 +1,5 @@
 export interface Agendamento {
-    id?: number;
+    id?: string;
     user?: string;
     unidade?: string;
     data?: string;

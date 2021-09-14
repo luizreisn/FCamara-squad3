@@ -1,7 +1,8 @@
 export interface Unidades {
     id?: string;
     nome?: string;
-    descricao?: string;
+    endereco?: string;
+    horario?: string;
     capacidadeMax?: number;
     capacidadeCovid?: number;
 }
