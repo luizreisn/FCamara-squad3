@@ -26,6 +26,26 @@ ion-toolbar{
     margin-right: 30px;
 }
 
+.input{
+    color: var(--ion-color-secondary);
+}
+
+.perfil{
+    margin: 20px;
+    ion-label{
+        color: var(--ion-color-secondary);;
+        margin: 10px;
+        font-size: 18px;
+        font-family: Montserrat-SemiBold;
+    }
+    ion-item{
+        border-radius: 5px;
+        margin: 10px;
+        color: black;
+        background-color: rgba(255, 255, 255, 0.226);
+    }
+}
+
 ion-button{
     margin: 20px;
 }

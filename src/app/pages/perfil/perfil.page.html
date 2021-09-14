@@ -12,31 +12,38 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-item lines="none">
+
+    <div class="perfil">
       <ion-label position="floating">Nome</ion-label>
-      <ion-input type="text" [(ngModel)]="usuario.nome" required></ion-input>
-    </ion-item>
-        <ion-item lines="none">
+      <ion-item lines="none">
+        <ion-input type="text" [(ngModel)]="usuario.nome" required></ion-input>
+      </ion-item>
       <ion-label position="floating">Sobrenome</ion-label>
-      <ion-input type="text" [(ngModel)]="usuario.sobrenome" required></ion-input>
-    </ion-item>
-    <ion-item lines="none">
+      <ion-item lines="none">
+        <ion-input type="text" [(ngModel)]="usuario.sobrenome" required></ion-input>
+      </ion-item>
       <ion-label position="floating">Celular</ion-label>
-      <ion-input type="tel" [(ngModel)]="usuario.celular" ></ion-input>
-    </ion-item>
-    <ion-item lines="none">
+      <ion-item lines="none">
+        <ion-input type="tel" [(ngModel)]="usuario.celular"></ion-input>
+      </ion-item>
       <ion-label position="floating">CPF</ion-label>
-      <ion-input type="number" [(ngModel)]="usuario.cpf" disabled ></ion-input>
-    </ion-item>
-    <ion-item lines="none">
+      <ion-item lines="none">
+        <ion-input type="number" [(ngModel)]="usuario.cpf" disabled></ion-input>
+      </ion-item>
       <ion-label position="floating">E-Mail</ion-label>
-      <ion-input type="email" [(ngModel)]="usuario.email" disabled ></ion-input>
-    </ion-item>
-    <ion-item lines="none">
+      <ion-item lines="none">
+        <ion-input type="email" [(ngModel)]="usuario.email" disabled></ion-input>
+      </ion-item>
       <ion-label position="floating">Senha</ion-label>
-      <ion-input type="password" [(ngModel)]="usuario.senha" disabled ></ion-input>
-    </ion-item>
-    <ion-button expand="block" (click)="atualizar()"> Atualizar Dados</ion-button>
+      <ion-item lines="none">
+        <ion-input type="password" [(ngModel)]="usuario.senha" disabled></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="atualizar()">
+        <ion-icon slot="start" name="pencil-outline"></ion-icon>
+        Atualizar Dados
+      </ion-button>
+    </div>
+
 
   </div>
 </ion-content>
