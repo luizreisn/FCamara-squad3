@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { Agendamento } from '../interfaces/agendamento';
 import { Usuario } from '../interfaces/usuario';
 
 @Injectable({
@@ -32,6 +33,10 @@ export class AuthService {
 
   public atualizarDados(id: string, usuario: Usuario){
     return this.usuarioColecao.doc<Usuario>(id).update(usuario);
+  }
+
+  public atualizarAgendamento(id: string, usuario: Usuario){
+    return this.usuarioColecao.doc<Usuario>(id).update({agendamentos: usuario.agendamentos})
   }
 
   public sair(){
