@@ -1,5 +1,5 @@
 <ion-content>
-  <div *ngIf="unidades && porcentagemCovid">
+  <div *ngIf="unidades && porcentagemCovid && usuario">
 
     <ion-header class="ion-no-border">
       <ion-toolbar class="ion-no-padding ion-text-center" color="primary">
@@ -13,8 +13,8 @@
     </ion-header>
 
     <ion-list>
-      <ion-radio-group [(ngModel)]="escolha">
-        <ion-label>Escolha uma unidade:</ion-label>
+      <ion-radio-group [(ngModel)]="escolhaUnidade">
+        <h3 class="ion-text-center step">Step 1: Escolha uma unidade da FCamara</h3>
         <ion-item *ngFor="let unidade of unidades">
           <ion-label>{{unidade.nome}}</ion-label>
           <ion-radio mode="md" slot="start" [value]="unidade.id"></ion-radio>
@@ -23,18 +23,20 @@
     </ion-list>
 
     <div *ngIf="focado === 0; else verMais">
-      <ion-text class="info" button (click)="focar()">Mais Informações</ion-text>
-      <h1>{{escolha}}</h1>
-      <div *ngIf="escolha != null">
+      <p class="info ion-text-center" button (click)="focar()">Mais Informações</p>
+      <div *ngIf="escolhaUnidade != null">
+        <h3 class="ion-text-center step">Step 2: Escolha um dia para agendar</h3>
         <ion-item>
-          <ion-label>Escolha um dia:</ion-label>
-          <ion-datetime displayFormat="DDD DD MM YYYY" pickerFormat="DDD DD MM YYYY" [min]="[diaMin]" [max]="[diaMax]" [dayShortNames]="customDaysName" [(ngModel)]="escolhaDia"></ion-datetime>
+          <ion-label>Dia:</ion-label>
+          <ion-datetime displayFormat="DDD DD MM YYYY" pickerFormat="DDD DD MM YYYY" [min]="[diaMin]" [max]="[diaMax]"
+            [dayShortNames]="customDaysName" [(ngModel)]="escolhaDia"></ion-datetime>
         </ion-item>
-        <h1>{{escolhaDia}}</h1>
       </div>
       <div *ngIf="escolhaDia != null">
-        <ion-button expand="block" (click)="formatar()">
-          Concluir agendamento
+        <h3 class="ion-text-center step">Step 3: Concluir agendamento</h3>
+        <ion-button expand="block" (click)="fazerAgendamento()">
+          <ion-icon slot="start" name="calendar-number-outline"></ion-icon>
+          Agendar
         </ion-button>
       </div>
     </div>
@@ -42,11 +44,16 @@
 </ion-content>
 
 <ng-template #verMais>
-  <ion-text class="info" button (click)="focar()">Minimizar Informações</ion-text>
+  <p class="info ion-text-center" button (click)="focar()">Minimizar Informações</p>
   <div *ngFor="let unidade of unidades">
-    <h1>{{unidade.nome}}</h1>
-    <p>{{unidade.descricao}}</p>
-    <p>Capacidade Maxima: {{unidade.capacidadeMax}}</p>
-    <p>Capacidade Covid: {{unidade.capacidadeCovid}}</p>
+    <ion-card class="ion-padding" color="primary">
+      <h1 class="ion-text-center ion-no-margin nomeUni">{{unidade.nome}}</h1>
+      <div class="detalhesUni">
+        <p>Endereço: {{unidade.endereco}}</p>
+        <p>Horario de funcionamento: {{unidade.horario}}</p>
+        <p style="text-decoration: underline;">Capacidade Maxima: {{unidade.capacidadeMax}}</p>
+        <p style="text-decoration: underline;">Capacidade Covid: {{unidade.capacidadeCovid}}</p>
+      </div>
+    </ion-card>
   </div>
 </ng-template>

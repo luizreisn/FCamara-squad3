@@ -31,3 +31,22 @@ ion-toolbar{
     color: var(--ion-color-primary);;
     text-decoration: underline;
 }
+
+.step{
+    font-family: Montserrat-SemiBold;
+    color: var(--ion-color-secondary);;
+    margin: 50px 20px 30px 20px;
+    
+}
+
+.nomeUni{
+    font-family: Montserrat-Bold;
+}
+
+.detalhesUni{
+    font-family: Montserrat-SemiBold;
+}
+
+ion-button{
+    margin: 30px;
+}
