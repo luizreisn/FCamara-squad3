@@ -1,5 +1,5 @@
 ion-toolbar {
-  border-radius: 0px;
+  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 30%);
   img {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -37,7 +37,7 @@ ion-button {
 .home-title {
   text-align: center;
   margin: 30px auto;
-  color: var(--ion-color-primary-shade);
+  color: var(--ion-color-secondary-shade);
 
   h1 {
     font-weight: 600;
