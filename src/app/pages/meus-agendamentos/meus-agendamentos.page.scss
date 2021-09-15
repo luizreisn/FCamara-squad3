@@ -37,6 +37,21 @@ ion-card{
   }
 }
 
-ion-item{
+.legenda{
+  ion-col{
+    font-family: Montserrat-Bold;
+  }
+}
+
+ion-col{
+  text-align: center;
   color: var(--ion-color-primary);;
+}
+
+.lixo{
+  font-size: x-large;
+}
+
+ion-item{
+  width: 300px;
 }

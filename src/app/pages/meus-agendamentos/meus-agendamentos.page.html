@@ -11,28 +11,27 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-card color="primary" class="ion-text-center">
-      <ion-text>Existem {{quantidadeAgendamentos}} agendamentos realizados</ion-text>
-    </ion-card>
-
     <div *ngIf="quantidadeAgendamentos > 0;else semAgendamento">
+      <ion-card color="primary" class="ion-text-center">
+        <ion-text>Existem {{quantidadeAgendamentos}} agendamentos realizados</ion-text>
+      </ion-card>
+
+      <ion-row class="legenda">
+        <ion-col size="4">Data</ion-col>
+        <ion-col size="3">Unidade</ion-col>
+        <ion-col size="3">Status</ion-col>
+        <ion-col size="1"></ion-col>
+      </ion-row>
       <ion-list *ngFor="let agendamento of usuario.agendamentos">
-        <ion-item>
-          <ion-row class="ion-align-items-center">
-            <ion-col>
-              <ion-row>
-                <h1>#{{agendamento.id}}</h1>
-              </ion-row>
-              <ion-row>
-                <h3>{{agendamento.data}}</h3>
-              </ion-row>
-            </ion-col>
-            <ion-col></ion-col>
-            <ion-col>
-              <h1>{{agendamento.unidade}}</h1>
-            </ion-col>
-          </ion-row>
-        </ion-item>
+        <ion-row>
+          <ion-icon button slot="end" name="trash-outline"></ion-icon>
+          <ion-col size="4">{{agendamento.data}}:</ion-col>
+          <ion-col size="3">{{agendamento.unidade}}</ion-col>
+          <ion-col size="3">{{agendamento.status}}</ion-col>
+          <ion-col size="1" button (click)="deletar(agendamento.id)">
+            <ion-icon class="lixo" color="danger" name="trash-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
       </ion-list>
     </div>
 
