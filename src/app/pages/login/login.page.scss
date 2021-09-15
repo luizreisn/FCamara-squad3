@@ -25,5 +25,31 @@ ion-slide{
 }
 
 ion-button{
+    margin-top: 20px;
     margin-bottom: 50px;
+}
+
+.titulo{
+    font-family: Montserrat-SemiBold;
+    color: var(--ion-color-primary);;
+}
+
+p{
+    font-size: 10pt;
+    color: var(--ion-color-primary);;
+}
+
+.textoLema{
+    position: absolute;
+    left: auto;
+    right: auto;
+    width: 80%;
+    text-align: center;
+    margin-top: 350px;
+    color: var(--ion-color-primary);
+    font-family: Montserrat-SemiBold;
+}
+
+ion-header{
+    position: fixed;
 }

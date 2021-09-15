@@ -1,73 +1,75 @@
 <ion-content>
   <ion-header class="ion-no-border">
-      <ion-card>
-        <img src="/assets/img/logo-fcamara-negativo.png" alt="Logo do Grupo FCamara">
-      </ion-card>
+    <ion-card>
+      <img src="/assets/img/logo-fcamara-negativo.png" alt="Logo do Grupo FCamara">
+    </ion-card>
   </ion-header>
-  
-  <div class="segment">
-    <ion-segment value="login" (ionChange)="segmentChanged($event)">
-      <ion-segment-button value="login">
-        <ion-label>Login</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="cadastro">
-        <ion-label>Cadastro</ion-label>
-      </ion-segment-button>
-    </ion-segment>
+
+  <div style="margin-top: 250px;">
+    <div class="segment">
+      <ion-segment value="login" (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="login">
+          <ion-label>Login</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="cadastro">
+          <ion-label>Cadastro</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    <ion-slides class="swiper-no-swiping" style="margin-top: 30px;">
+      <ion-slide>
+        <div>
+          <span class="titulo">Login</span>
+          <ion-item lines="none">
+            <ion-label position="floating">Digite seu E-Mail</ion-label>
+            <ion-input type="email" [(ngModel)]="usuarioLogin.email" required></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label position="floating">Digite sua senha</ion-label>
+            <ion-input type="password" [(ngModel)]="usuarioLogin.senha" required></ion-input>
+          </ion-item>
+          <ion-button expand="block" (click)="login()">
+            Login
+          </ion-button>
+        </div>
+        <ion-text class="textoLema">Transformação cultural, digital e cognitiva!</ion-text>
+      </ion-slide>
+      <ion-slide>
+        <div>
+          <span class="titulo">Cadastrar</span>
+          <ion-item lines="none">
+            <ion-label position="floating">Digite seu nome *</ion-label>
+            <ion-input type="text" [(ngModel)]="usuarioCadastro.nome" required></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label position="floating">Digite seu sobrenome *</ion-label>
+            <ion-input type="text" [(ngModel)]="usuarioCadastro.sobrenome" required></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label position="floating">Digite seu celular</ion-label>
+            <ion-input type="tel" [(ngModel)]="usuarioCadastro.celular"></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label position="floating">Digite seu CPF *</ion-label>
+            <ion-input type="number" [(ngModel)]="usuarioCadastro.cpf" required></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label position="floating">Digite seu E-Mail *</ion-label>
+            <ion-input type="email" [(ngModel)]="usuarioCadastro.email" required></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label position="floating">Digite sua senha *</ion-label>
+            <ion-input type="password" placeholder="Minimo de 6 caracteres" [(ngModel)]="usuarioCadastro.senha" required>
+            </ion-input>
+          </ion-item>
+          <p>(*) Campos obrigatórios</p>
+          <ion-button expand="block" (click)="cadastrar()">
+            Cadastrar
+          </ion-button>
+        </div>
+      </ion-slide>
+    </ion-slides>
   </div>
-
-  <ion-slides class="swiper-no-swiping">
-    <ion-slide>
-      <div>
-        <span>Login</span>
-        <ion-item lines="none">
-          <ion-label position="floating">Digite seu E-Mail</ion-label>
-          <ion-input type="email" [(ngModel)]="usuarioLogin.email" required></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-label position="floating">Digite sua senha</ion-label>
-          <ion-input type="password" [(ngModel)]="usuarioLogin.senha" required></ion-input>
-        </ion-item>
-        <ion-button expand="block" (click)="login()">
-          Login
-        </ion-button>
-      </div>
-    </ion-slide>
-
-    <ion-slide>
-      <div>
-        <span>Cadastrar</span>
-        <ion-item lines="none">
-          <ion-label position="floating">Digite seu nome *</ion-label>
-          <ion-input type="text" [(ngModel)]="usuarioCadastro.nome" required></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-label position="floating">Digite seu sobrenome *</ion-label>
-          <ion-input type="text" [(ngModel)]="usuarioCadastro.sobrenome" required></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-label position="floating">Digite seu celular</ion-label>
-          <ion-input type="tel" [(ngModel)]="usuarioCadastro.celular"></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-label position="floating">Digite seu CPF *</ion-label>
-          <ion-input type="number"  [(ngModel)]="usuarioCadastro.cpf" required></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-label position="floating">Digite seu E-Mail *</ion-label>
-          <ion-input type="email" [(ngModel)]="usuarioCadastro.email" required></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-label position="floating">Digite sua senha *</ion-label>
-          <ion-input type="password" placeholder="Minimo de 6 caracteres" [(ngModel)]="usuarioCadastro.senha" required></ion-input>
-        </ion-item>
-        <p>(*) Campos obrigatórios</p>
-        <ion-button expand="block" (click)="cadastrar()">
-          Cadastrar
-        </ion-button>
-      </div>
-    </ion-slide>
-  </ion-slides>
 
 
 </ion-content>
