@@ -20,11 +20,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'fonte',
-    canActivate: [AuthGuard],
-    loadChildren: () => import('./pages/fonte/fonte.module').then( m => m.FontePageModule)
-  },
-  {
     path: 'agendamento',
     canActivate: [AuthGuard],
     loadChildren: () => import('./pages/agendamento/agendamento.module').then( m => m.AgendamentoPageModule)
