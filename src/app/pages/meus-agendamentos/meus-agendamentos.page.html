@@ -1,5 +1,6 @@
 <ion-content>
   <div *ngIf="usuario">
+
     <ion-header class="ion-no-border">
       <ion-toolbar class="ion-no-padding ion-text-center" color="primary">
         <ion-buttons>
@@ -11,30 +12,52 @@
       </ion-toolbar>
     </ion-header>
 
-    <div *ngIf="quantidadeAgendamentos > 0;else semAgendamento">
+    <div *ngIf="quantidadeAgendamentos > 0 ;else semAgendamento">
       <ion-card color="primary" class="ion-text-center">
         <ion-text>Existem {{quantidadeAgendamentos}} agendamentos realizados</ion-text>
       </ion-card>
 
-      <ion-row class="legenda">
-        <ion-col size="4">Data</ion-col>
-        <ion-col size="3">Unidade</ion-col>
-        <ion-col size="3">Status</ion-col>
-        <ion-col size="1"></ion-col>
-      </ion-row>
-      <ion-list *ngFor="let agendamento of usuario.agendamentos">
-        <ion-row>
-          <ion-icon button slot="end" name="trash-outline"></ion-icon>
-          <ion-col size="4">{{agendamento.data}}:</ion-col>
-          <ion-col size="3">{{agendamento.unidade}}</ion-col>
-          <ion-col size="3">{{agendamento.status}}</ion-col>
-          <ion-col size="1" button (click)="deletar(agendamento.id)">
-            <ion-icon class="lixo" color="danger" name="trash-outline"></ion-icon>
-          </ion-col>
+      <div class="ion-text-center">
+        <ion-row class="ion-margin">
+          Agendamentos Futuros
         </ion-row>
-      </ion-list>
-    </div>
+        <ion-row class="legenda">
+          <ion-col size="5">Data</ion-col>
+          <ion-col size="5">Unidade</ion-col>
+          <ion-col size="2"></ion-col>
+        </ion-row>
+        <ion-list *ngFor="let agendamento of usuario.agendamentos">
+          <div *ngIf="agendamento.data > diaHoje">
+            <ion-row>
+              <ion-col size="5">{{agendamento.data}}:</ion-col>
+              <ion-col size="5">{{agendamento.unidade}}</ion-col>
+              <ion-col size="2" button (click)="deletar(agendamento.id, agendamento.data, agendamento.unidade)">
+                <ion-icon class="lixo" color="danger" name="trash-outline"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-list>
+      </div>
 
+      <div class="ion-text-center">
+        <ion-row class="ion-margin">
+          Agendamentos Passados
+        </ion-row>
+        <ion-row class="legenda">
+          <ion-col size="5">Data</ion-col>
+          <ion-col size="5">Unidade</ion-col>
+          <ion-col size="2"></ion-col>
+        </ion-row>
+        <ion-list *ngFor="let agendamento of usuario.agendamentos">
+          <div *ngIf="agendamento.data <= diaHoje">
+            <ion-row>
+              <ion-col size="5">{{agendamento.data}}:</ion-col>
+              <ion-col size="5">{{agendamento.unidade}}</ion-col>
+            </ion-row>
+          </div>
+        </ion-list>
+      </div>
+    </div>
   </div>
 </ion-content>
 

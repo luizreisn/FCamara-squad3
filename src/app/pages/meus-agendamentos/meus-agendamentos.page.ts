@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Dia } from 'src/app/interfaces/dia';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { DiaService } from 'src/app/services/dia.service';
@@ -11,33 +12,48 @@ import { DiaService } from 'src/app/services/dia.service';
 })
 export class MeusAgendamentosPage {
 
-  public quantidadeAgendamentos: number;
-
   public usuario: Usuario = {};
   public usuarioId: string = null;
-  private usuarioSubscription: Subscription;
+  public usuarioSubscription: Subscription;
+
+  public quantidadeAgendamentos: number;
+  public diaHoje: string;
+
+  public diaContador: number;
+  public dias = new Array<Dia>();
+  public diasSubscription: Subscription;
 
   constructor(private authService: AuthService,
-    private diaService: DiaService) { 
-    this.carregarDados()
+    private diaService: DiaService) {
+    this.carregarDados();
+    this.diaHoje = new Date(Date.now()).toISOString();
+    this.diaHoje = this.diaHoje.split('T')[0];
   }
 
-  public async carregarDados(){
-    this.usuarioId = (await this.authService.getAuth().currentUser).uid
+  public async carregarDados() {
+    this.usuarioId = (await this.authService.getAuth().currentUser).uid;
     this.usuarioSubscription = this.authService.getUsuario(this.usuarioId).subscribe(data => {
       this.usuario = data;
+    });
+    this.diasSubscription = this.diaService.getDias().subscribe(data => {
+      this.dias = data;
+      this.diaContador = null;
       this.quantidadeAgendamentos = this.usuario.agendamentos.length;
     });
   }
 
-  public deletar(id: string){
-    console.log(this.usuario.agendamentos)
+  public deletar(id: string, dia: string, unidade: string) {
     const index = this.usuario.agendamentos.findIndex(a => a.id === id)
     this.usuario.agendamentos.splice(index, 1);
-    console.log(this.usuario.agendamentos)
     this.authService.atualizarDados(this.usuarioId, this.usuario);
-    
 
+    this.diaContador = this.dias.find(d => d.id === dia).unidades.find(u => u.id === unidade).contador;
+    this.diaContador += 1;
+    this.dias.find(d => d.id === dia).unidades.find(u => u.id === unidade).contador = this.diaContador
+    console.log(this.dias.find(d => d.id === dia).unidades.find(u => u.id === unidade));
+    this.diaService.atualizandoUnidade(dia, this.dias.find(d => d.id === dia).unidades);
+
+    this.carregarDados();
   }
 
 
