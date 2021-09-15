@@ -8,16 +8,20 @@
               <ion-menu-button menu="menuHome"></ion-menu-button>
               <div>
                 <img src="/assets/img/logo-fcamara-negativo.png" alt="Logo do Grupo FCamara">
-                <h1>Olá, {{usuario.nome}}</h1>
               </div>
             </ion-buttons>
         </ion-toolbar>
       </ion-header>
   
-      <ion-button expand="block" routerLink="/fonte">Fontes</ion-button>
-      <ion-button expand="block" routerLink="/agendamento">
-        <ion-icon slot="start" name="calendar-number-outline"></ion-icon>
-        Realizar Agendamento
+      <div class="home-title">
+        <h1>Olá, {{usuario.nome}}</h1>
+      </div>
+
+      <ion-button expand="block" routerLink="/agendamento" class="home-agendamento">
+        <div class="home-agendamento-btn">
+          <ion-icon slot="start" name="calendar-number-outline" class="home-agendamento-icon"></ion-icon>
+          <span class="home-agendamento-txt">Realizar Agendamento</span>
+        </div>
       </ion-button>
     </div>
   </ion-content>
