@@ -33,8 +33,8 @@ export class DiaService {
     return this.diaColecao.doc<Dia>(id).valueChanges();
   }
 
-  public criarDocDia(id: string, dia: DiaUnidade){
-    return this.diaColecao.doc<Dia>(id).set({id: id, unidades: [dia]});
+  public criarDocDia(id: string, dia: DiaUnidade[]){
+    return this.diaColecao.doc<Dia>(id).set({id: id, unidades: dia});
   }
 
   public criandoUnidadeDia(id: string, unidade: DiaUnidade[]){
@@ -43,10 +43,6 @@ export class DiaService {
 
   public atualizandoUnidade(id: string, unidade: Unidades[]){
     return this.diaColecao.doc<Dia>(id).update({unidades: unidade})
-  }
-
-  public atualizarAgendamentos(id: string, unidades: DiaUnidade[]){
-    return this.diaColecao.doc<Dia>(id).update({unidades: unidades })
   }
 
 }
