@@ -1,5 +1,5 @@
 <ion-content>
-  <div *ngIf="unidades && porcentagemCovid && usuario">
+  <div *ngIf="unidades && porcentagensCovid && usuario">
 
     <ion-header class="ion-no-border">
       <ion-toolbar class="ion-no-padding ion-text-center" color="primary">
@@ -34,7 +34,7 @@
       </div>
       <div *ngIf="escolhaDia != null">
         <h3 class="ion-text-center step">Step 3: Concluir agendamento</h3>
-        <ion-button expand="block" (click)="fazerAgendamento()">
+        <ion-button expand="block" (click)="aviso()">
           <ion-icon slot="start" name="calendar-number-outline"></ion-icon>
           Agendar
         </ion-button>
