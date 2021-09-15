@@ -5,7 +5,7 @@
     </ion-card>
   </ion-header>
 
-  <div style="margin-top: 250px;">
+  <div style="margin-top: 160px;">
     <div class="segment">
       <ion-segment value="login" (ionChange)="segmentChanged($event)">
         <ion-segment-button value="login">
@@ -22,12 +22,12 @@
           <span class="titulo">Realizar Login</span>
           <div class="input-container">
             <ion-item lines="none">
-              <ion-label position="floating">E-Mail: </ion-label>
-              <ion-input type="email" [(ngModel)]="usuarioLogin.email" required></ion-input>
+              <ion-label position="floating" class="input-label">E-Mail: </ion-label>
+              <ion-input type="email" [(ngModel)]="usuarioLogin.email" class="input-item" required></ion-input>
             </ion-item>
             <ion-item lines="none">
-              <ion-label position="floating">Senha: </ion-label>
-              <ion-input type="password" [(ngModel)]="usuarioLogin.senha" required></ion-input>
+              <ion-label position="floating" class="input-label">Senha: </ion-label>
+              <ion-input type="password" [(ngModel)]="usuarioLogin.senha" class="input-item" required></ion-input>
             </ion-item>
           </div>
           <ion-button expand="block" (click)="login()">
@@ -41,28 +41,28 @@
           <span class="titulo">Realizar Cadastro</span>
           <div class="input-container">
             <ion-item lines="none">
-              <ion-label position="floating">Nome: <span class="input-required">*</span></ion-label>
-              <ion-input type="text" [(ngModel)]="usuarioCadastro.nome" required></ion-input>
+              <ion-label position="floating" class="input-label">Nome: <span class="input-required">*</span></ion-label>
+              <ion-input type="text" [(ngModel)]="usuarioCadastro.nome" class="input-item" required></ion-input>
             </ion-item>
             <ion-item lines="none">
-              <ion-label position="floating">Sobrenome: <span class="input-required">*</span></ion-label>
-              <ion-input type="text" [(ngModel)]="usuarioCadastro.sobrenome" required></ion-input>
+              <ion-label position="floating" class="input-label">Sobrenome: <span class="input-required">*</span></ion-label>
+              <ion-input type="text" [(ngModel)]="usuarioCadastro.sobrenome" class="input-item" required></ion-input>
             </ion-item>
             <ion-item lines="none">
-              <ion-label position="floating">Celular:</ion-label>
-              <ion-input type="tel" [(ngModel)]="usuarioCadastro.celular"></ion-input>
+              <ion-label position="floating" class="input-label">Celular:</ion-label>
+              <ion-input type="tel" [(ngModel)]="usuarioCadastro.celular" class="input-item"></ion-input>
             </ion-item>
             <ion-item lines="none">
-              <ion-label position="floating">CPF: <span class="input-required">*</span></ion-label>
-              <ion-input type="number" [(ngModel)]="usuarioCadastro.cpf" required></ion-input>
+              <ion-label position="floating" class="input-label">CPF: <span class="input-required">*</span></ion-label>
+              <ion-input type="number" [(ngModel)]="usuarioCadastro.cpf" class="input-item" required></ion-input>
             </ion-item>
             <ion-item lines="none">
-              <ion-label position="floating">E-Mail: <span class="input-required">*</span></ion-label>
-              <ion-input type="email" [(ngModel)]="usuarioCadastro.email" required></ion-input>
+              <ion-label position="floating" class="input-label">E-Mail: <span class="input-required">*</span></ion-label>
+              <ion-input type="email" [(ngModel)]="usuarioCadastro.email" class="input-item" required></ion-input>
             </ion-item>
             <ion-item lines="none">
-              <ion-label position="floating">Senha: <span class="input-required">*</span></ion-label>
-              <ion-input type="password" placeholder="Minimo de 6 caracteres" [(ngModel)]="usuarioCadastro.senha" required>
+              <ion-label position="floating" class="input-label">Senha: <span class="input-required">*</span></ion-label>
+              <ion-input type="password" placeholder="Minimo de 6 caracteres" [(ngModel)]="usuarioCadastro.senha" class="input-item" required>
               </ion-input>
             </ion-item>
           </div>

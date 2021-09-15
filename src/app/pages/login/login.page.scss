@@ -2,14 +2,16 @@ ion-card{
     margin: 0%;
     margin-bottom: 20px;
     width: 100%;
-    height: 223px;
-    background-color: var(--ion-color-primary);;
+    height: 110px;
+    border-radius: 0;
+    background-color: var(--ion-color-primary);
+
     img{
-        margin-top: 100px;
+        margin-top: 40px;
         margin-bottom: auto;
         margin-left: auto;
         margin-right: auto;
-        width: 300px;
+        width: 200px;
         display: block;
     }
 }
@@ -30,9 +32,19 @@ ion-button{
 }
 
 .input-container {
-  display: grid;
-  grid-gap: 10px;
-  margin-top: 15px;
+  margin-top: 10px;
+
+  .input-item {
+    border: 1px solid var(--ion-color-light-shade);
+    border-radius: 4px;
+    backface-visibility: hidden;
+    outline: none;
+    overflow: visible;
+  }
+
+  .input-label {
+    margin-left: 10px;
+  }
 }
 
 .input-required {
