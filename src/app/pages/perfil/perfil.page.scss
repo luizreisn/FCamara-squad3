@@ -48,7 +48,17 @@ ion-toolbar{
     
     ion-input{
         padding-left: 10px;
+        font-family: "Montserrat";
+        font-size: 1.25rem;
+        font-weight: bold;
     }
+
+    ion-label{
+        color: var(--ion-color-primary);
+        font-weight: bold;
+        font-size: 1.30rem;
+    }
+
 }
 
 ion-button{
