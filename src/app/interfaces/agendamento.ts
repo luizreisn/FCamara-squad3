@@ -3,5 +3,4 @@ export interface Agendamento {
     user?: string;
     unidade?: string;
     data?: string;
-    status?: boolean;
 }
