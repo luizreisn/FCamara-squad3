@@ -39,6 +39,18 @@ ion-toolbar{
   }
 }
 
+.agendamento-container {
+  border: 1px solid #f0eded;
+  padding: 30px;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+
+  h3 {
+    margin-top: 0;
+  }
+}
+
 .info{
     color: var(--ion-color-primary);;
     text-decoration: underline;
@@ -81,7 +93,7 @@ ion-button{
 ion-datetime{
     color: black;
     font-weight: bold;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 ion-button{
@@ -92,4 +104,5 @@ ion-button{
     font-weight: bold;
     font-size: 1.35rem;
     cursor: pointer;
+    margin-bottom: 60px;
 }

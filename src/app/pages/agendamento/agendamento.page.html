@@ -15,9 +15,9 @@
       <h1>Realizar Agendamento</h1>
     </div>
 
-    <ion-list>
+    <ion-list class="agendamento-container">
       <ion-radio-group [(ngModel)]="escolhaUnidade">
-        <h3 class="ion-text-center step">Step 1: Escolha uma unidade da FCamara</h3>
+        <h3 class="ion-text-center step">Escolha uma unidade da FCamara</h3>
         <ion-item *ngFor="let unidade of unidades">
           <ion-label class = "unit-name">{{unidade.nome}}</ion-label>
           <ion-radio class = "ion-radio-option" mode="md" slot="start" [value]="unidade.id"></ion-radio>
@@ -27,8 +27,8 @@
 
     <div *ngIf="focado === 0; else verMais">
       <p class="info ion-text-center" button (click)="focar()">Mais Informações</p>
-      <div *ngIf="escolhaUnidade != null">
-        <h3 class="ion-text-center step">Step 2: Escolha um dia para agendar</h3>
+      <div *ngIf="escolhaUnidade != null" class="agendamento-container">
+        <h3 class="ion-text-center step">Escolha um dia para agendar</h3>
         <ion-item>
           <ion-label class = "day">Dia:</ion-label>
           <ion-datetime displayFormat="DDD DD MM YYYY" pickerFormat="DDD DD MM YYYY" [min]="[diaMin]" [max]="[diaMax]"
@@ -36,7 +36,7 @@
         </ion-item>
       </div>
       <div *ngIf="escolhaDia != null">
-        <h3 class="ion-text-center step">Step 3: Concluir agendamento</h3>
+        <h3 class="ion-text-center step">Concluir agendamento</h3>
         <ion-button expand="block" (click)="aviso()">
           <ion-icon slot="start" name="calendar-number-outline"></ion-icon>
           Agendar
