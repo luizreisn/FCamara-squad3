@@ -3,9 +3,9 @@ ion-toolbar {
   img {
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-left: auto;
+    margin-left: 40px;
     margin-right: auto;
-    width: 200px;
+    width: 180px;
     display: block;
   }
   h1 {
@@ -16,7 +16,7 @@ ion-toolbar {
 }
 
 .ios ion-menu-button {
-  font-size: 60px;
+  font-size: 50px;
   color: white;
   margin-right: 10px;
 }
@@ -48,6 +48,8 @@ ion-button {
 
 .home-agendamento {
   min-height: 5em;
+  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 60%);
+  border-radius: 10px;
   
   &-btn {
     display: grid;
