@@ -31,7 +31,8 @@ ion-toolbar{
 }
 
 .perfil{
-    margin: 20px;
+    margin: 40px;
+    padding: 20px;
     ion-label{
         color: var(--ion-color-secondary);;
         margin: 10px;
@@ -43,6 +44,10 @@ ion-toolbar{
         margin: 10px;
         color: black;
         background-color: rgba(255, 255, 255, 0.226);
+    }
+    
+    ion-input{
+        padding-left: 10px;
     }
 }
 

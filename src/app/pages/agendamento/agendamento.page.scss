@@ -50,3 +50,28 @@ ion-toolbar{
 ion-button{
     margin: 30px;
 }
+
+.step {
+    color: #ff4500;
+} 
+
+.unit-name{
+    color: #ff4500;
+    font-weight: bold;
+    font-family: Montserrat-Bold;
+}
+
+.day{
+    font-family: Montserrat-Bold;
+    font-size: 1.5rem;
+}
+
+ion-datetime{
+    color: black;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.info{
+    font-weight: bold;
+}

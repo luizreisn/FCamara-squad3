@@ -16,8 +16,8 @@
       <ion-radio-group [(ngModel)]="escolhaUnidade">
         <h3 class="ion-text-center step">Step 1: Escolha uma unidade da FCamara</h3>
         <ion-item *ngFor="let unidade of unidades">
-          <ion-label>{{unidade.nome}}</ion-label>
-          <ion-radio mode="md" slot="start" [value]="unidade.id"></ion-radio>
+          <ion-label class = "unit-name">{{unidade.nome}}</ion-label>
+          <ion-radio class = "ion-radio-option" mode="md" slot="start" [value]="unidade.id"></ion-radio>
         </ion-item>
       </ion-radio-group>
     </ion-list>
@@ -27,7 +27,7 @@
       <div *ngIf="escolhaUnidade != null">
         <h3 class="ion-text-center step">Step 2: Escolha um dia para agendar</h3>
         <ion-item>
-          <ion-label>Dia:</ion-label>
+          <ion-label class = "day">Dia:</ion-label>
           <ion-datetime displayFormat="DDD DD MM YYYY" pickerFormat="DDD DD MM YYYY" [min]="[diaMin]" [max]="[diaMax]"
             [dayShortNames]="customDaysName" [(ngModel)]="escolhaDia"></ion-datetime>
         </ion-item>
