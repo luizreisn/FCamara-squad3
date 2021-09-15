@@ -1,5 +1,5 @@
 ion-toolbar {
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 0px;
   img {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -34,6 +34,37 @@ ion-button {
   display: block;
 }
 
+.home-title {
+  text-align: center;
+  margin: 30px auto;
+  color: var(--ion-color-primary-shade);
+
+  h1 {
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 1px;
+  }
+}
+
+.home-agendamento {
+  min-height: 5em;
+  
+  &-btn {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-icon {
+    width: 100%;
+    height: 2em;
+    margin-bottom: 10px;
+  }
+
+  &-txt {
+    font-size: 1.3em;
+  }
+}
 .menuLateral{
   ion-list{
     --background-color: var(--ion-color-primary);;
