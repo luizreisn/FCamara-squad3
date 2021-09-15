@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { find, map } from 'rxjs/operators';
+import { Agendamento } from '../interfaces/agendamento';
 import { Dia } from '../interfaces/dia';
 import { DiaUnidade } from '../interfaces/dia-unidade';
 import { Unidades } from '../interfaces/unidades';
@@ -42,6 +43,10 @@ export class DiaService {
 
   public atualizandoUnidade(id: string, unidade: Unidades[]){
     return this.diaColecao.doc<Dia>(id).update({unidades: unidade})
+  }
+
+  public atualizarAgendamentos(id: string, unidades: DiaUnidade[]){
+    return this.diaColecao.doc<Dia>(id).update({unidades: unidades })
   }
 
 }
