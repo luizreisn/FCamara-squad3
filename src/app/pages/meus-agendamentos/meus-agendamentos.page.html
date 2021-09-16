@@ -22,7 +22,7 @@
         </ng-template>
       </ion-card>
 
-      <div class="ion-text-center">
+      <div class="ion-text-center agendamento-container">
         <ion-row class="ion-margin">
           Agendamentos Futuros
         </ion-row>
@@ -37,14 +37,14 @@
               <ion-col size="5">{{agendamento.data}}:</ion-col>
               <ion-col size="5">{{agendamento.unidade}}</ion-col>
               <ion-col size="2" button (click)="deletar(agendamento.id, agendamento.data, agendamento.unidade)">
-                <ion-icon class="lixo" color="danger" name="trash-outline"></ion-icon>
+                <ion-icon class="lixo" color="light" name="trash-outline"></ion-icon>
               </ion-col>
             </ion-row>
           </div>
         </ion-list>
       </div>
 
-      <div class="ion-text-center">
+      <div class="ion-text-center agendamento-container">
         <ion-row class="ion-margin">
           Agendamentos Passados
         </ion-row>
