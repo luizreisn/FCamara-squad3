@@ -6,13 +6,15 @@
         <ion-buttons>
           <ion-back-button defaultHref="home"></ion-back-button>
           <div><img src="/assets/img/logo-fcamara-negativo.png" alt="Logo do Grupo FCamara">
-            <h1>Meus Agendamentos</h1>
           </div>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
 
     <div *ngIf="quantidadeAgendamentos > 0 ;else semAgendamento">
+      <div class="agendamento-title">
+        <h1>Meus Agendamentos</h1>
+      </div>
       <ion-card color="primary" class="ion-text-center">
         <ion-text>Existem {{quantidadeAgendamentos}} agendamentos realizados</ion-text>
       </ion-card>

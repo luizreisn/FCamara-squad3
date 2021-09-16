@@ -1,5 +1,5 @@
 ion-toolbar {
-  border-radius: 0px 0px 10px 10px;
+  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 30%);
 
   img {
     margin-top: 20px;
@@ -9,14 +9,6 @@ ion-toolbar {
     width: 200px;
     display: block;
   }
-
-  h1 {
-    color: white;
-    font-family: Montserrat-Bold;
-    margin-bottom: 20px;
-    font-size: large;
-  }
-
 }
 
 .ios ion-back-button {
@@ -27,6 +19,18 @@ ion-toolbar {
 .md ion-back-button {
   font-size: 50px;
   margin-right: 30px;
+}
+
+.agendamento-title {
+  text-align: center;
+  margin: 30px auto;
+  color: var(--ion-color-secondary-shade);
+
+  h1 {
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 1px;
+  }
 }
 
 ion-card{
