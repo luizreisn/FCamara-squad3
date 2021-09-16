@@ -16,7 +16,10 @@
         <h1>Meus Agendamentos</h1>
       </div>
       <ion-card color="primary" class="ion-text-center">
-        <ion-text>Existem {{quantidadeAgendamentos}} agendamentos realizados</ion-text>
+        <ion-text *ngIf="quantidadeAgendamentos > 1;else umAgendamento">{{quantidadeAgendamentos}} agendamentos realizados</ion-text>
+        <ng-template #umAgendamento>
+          <ion-text>Apenas 1 agendamento encontrado</ion-text>
+        </ng-template>
       </ion-card>
 
       <div class="ion-text-center">
@@ -68,6 +71,6 @@
     <h1>
       <ion-icon slot="start" name="sad-outline" style="font-size: 3em;"></ion-icon>
     </h1>
-    <p style="margin: 15px; font-weight: bold; color: black; font-family: Montserrat-Bold; font-size: 2rem;">Você ainda não possui agendamentos.</p>
+    <p style="margin: 15px; font-weight: bold; color: black; font-family: Montserrat-Bold; font-size: 1.5rem;">Você ainda não possui agendamentos.</p>
   </ion-text>
 </ng-template>
