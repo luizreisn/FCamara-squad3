@@ -61,9 +61,8 @@
               <ion-input type="email" [(ngModel)]="usuarioCadastro.email" class="input-item" required></ion-input>
             </ion-item>
             <ion-item lines="none">
-              <ion-label position="floating" class="input-label">Senha: <span class="input-required">*</span></ion-label>
-              <ion-input type="password" placeholder="Minimo de 6 caracteres" [(ngModel)]="usuarioCadastro.senha" class="input-item" required>
-              </ion-input>
+              <ion-label position="floating" class="input-label">Senha: (Min 6 caracteres) <span class="input-required">*</span></ion-label>
+              <ion-input type="password" [(ngModel)]="usuarioCadastro.senha" class="input-item" required></ion-input>
             </ion-item>
           </div>
           <p>(*) Campos obrigatórios</p>
